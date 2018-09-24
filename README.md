@@ -15,6 +15,7 @@ Java 8 and Maven was used for this project. Dependencies include Guice, Lombok, 
 
 Host: https://jeffyang-shopifychallenge.appspot.com/_ah/api/
 
+API Explorer: https://jeffyang-shopifychallenge.appspot.com/_ah/api/explorer
 
 -------------------------------------------------------------------------------
 ### Create shop:
