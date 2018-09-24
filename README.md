@@ -17,7 +17,7 @@ Host: https://jeffyang-shopifychallenge.appspot.com/_ah/api/
 
 
 -------------------------------------------------------------------------------
-Create shop:
+### Create shop:
 
 endpoint: POST ./shop/
 
@@ -37,7 +37,7 @@ response:
 ```
 
 -------------------------------------------------------------------------------
-Get shop:
+### Get shop:
 
 endpoint: GET ./shop/{shopId}
 (sample shopId: ./shop/7ca204f2-7875-4b0d-8976-5a36c14b06e4)
@@ -71,7 +71,7 @@ response:
 ```
 
 -------------------------------------------------------------------------------
-Get order:
+### Get order:
 
 endpoint: GET ./shop/{shopId}/order/{orderId}
 (sample orderId: ./shop/7ca204f2-7875-4b0d-8976-5a36c14b06e4/order/62e51df9-fb95-410e-8609-05678e51a403)
@@ -91,7 +91,7 @@ response:
 ```
 
 -------------------------------------------------------------------------------
-Get order cost:
+### Get order cost:
 
 endpoint: GET ./shop/{shopId}/order/{orderId}/cost
 (sample orderId: ./shop/7ca204f2-7875-4b0d-8976-5a36c14b06e4/order/62e51df9-fb95-410e-8609-05678e51a403/cost)
@@ -104,7 +104,7 @@ response:
 ```
 
 -------------------------------------------------------------------------------
-Create order:
+### Create order:
 
 endpoint: POST ./shop/{shopId}/orderId
 
@@ -123,7 +123,7 @@ response:
 ```
 
 -------------------------------------------------------------------------------
-Create product:
+### Create product:
 
 endpoint: POST ./shop/{shopId}/product
 
@@ -148,7 +148,7 @@ response:
 ```
 
 -------------------------------------------------------------------------------
-Add product to order:
+### Add product to order:
 
 endpoint: POST ./order/product
 
