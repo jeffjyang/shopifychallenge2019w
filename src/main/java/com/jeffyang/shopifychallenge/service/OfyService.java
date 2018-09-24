@@ -20,7 +20,7 @@ public class OfyService<T> {
     return ofy().load().type(clazz).id(id).now();
   }
 
-  public void save(Object entity) {
+  public void save(T entity) {
     ofy().save().entity(entity).now();
   }
 }
