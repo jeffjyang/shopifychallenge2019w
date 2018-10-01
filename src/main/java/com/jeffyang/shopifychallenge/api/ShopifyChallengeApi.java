@@ -100,7 +100,7 @@ public class ShopifyChallengeApi {
     private String b_new_implementation_repo = "The updated implementation can be found at: https://github.com/jeffjyang/shopifychallenge2019w ";
     private String c_new_implementation_documentation = "Documentation for the updated implementation can be found in the README and at: " +
         "https://jeffjyang.github.io/shopifychallenge2019w/#introduction" ;
-    private String d_sample_data = "You can use the shopId of 2113d324-479f-42ab-8d85-f1c531b22a3b for some sample data that has " +
+    private String d_sample_data = "You can use the shopId of (contact @jeffjyang for ID) for some sample data that has " +
             "been used to populate the database";
   }
 
