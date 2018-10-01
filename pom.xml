@@ -25,7 +25,7 @@
         <lombok.version>1.18.2</lombok.version>
         <objectify.version>5.1.22</objectify.version>
 
-        <endpoints.project.id>jeffyang-shopifychallenge-dev</endpoints.project.id>
+        <endpoints.project.id>jeffyang-shopifychallenge2019w</endpoints.project.id>
     </properties>
 
     <dependencies>
