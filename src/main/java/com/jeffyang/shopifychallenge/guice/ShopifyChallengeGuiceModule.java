@@ -25,8 +25,6 @@ public class ShopifyChallengeGuiceModule extends EndpointsModule {
     apiController.put("endpoints.projectId", "jeffyang-shopifychallenge2019w");
     apiController.put("endpoints.serviceName", "jeffyang-shopifychallenge2019w.appspot.com");
 
-    System.out.println("API CONTROLLER IS: " + apiController);
-
     bind(GoogleAppEngineControlFilter.class).in(Singleton.class);
     filter("/_ah/api/*").through(GoogleAppEngineControlFilter.class, apiController);
 
