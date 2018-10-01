@@ -28,7 +28,7 @@ This endpoint retrieves a shop
 
 ### HTTP Request
 
-`GET https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/shop/<shopId>`
+`GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/<shopId>`
 
 ### URL Parameters
 
@@ -67,7 +67,7 @@ This endpoint allows you to create a shop
 
 ### HTTP requests
 
-`POST https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/shop/`
+`POST https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/`
 
 ### BODY parameters
 
@@ -99,7 +99,7 @@ This endpoint allows you to delete a shop
 
 ### HTTP requests
 
-`DELETE https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/shop/<shopId>`
+`DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/<shopId>`
 
 ### URL Parameters
 
@@ -116,7 +116,7 @@ This endpoint allows you to add a product to a shop
 
 ### HTTP request
 
-`POST https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/shop/<shopId>/product`
+`POST https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/<shopId>/product`
 
 ### URL Parameters
 
@@ -160,7 +160,7 @@ This endpoint allows you to delete a product from a shop
 
 ### HTTP request
 
-`DELETE https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/shop/<shopId>/product/<productId>`
+`DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/<shopId>/product/<productId>`
 
 ### URL Parameters
 
@@ -178,7 +178,7 @@ This endpoint allows you to get all the orders of a shop
 
 ### HTTP request
 
-`GET https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/shop/<shopId>/orders`
+`GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/<shopId>/orders`
 
 ### URL Parameters
 
@@ -230,7 +230,7 @@ This endpoint allows you to get a specific order
 
 ### HTTP request
 
-`GET https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/order/<orderId>`
+`GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/<orderId>`
 
 ### URL Parameters
 
@@ -270,7 +270,7 @@ This endpoints allow you to create a new order
 
 ### HTTP Request
 
-`POST https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/order/`
+`POST https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/`
 
 ### BODY Parameters
 
@@ -302,7 +302,7 @@ This endpoint allows you to delete an order
 
 ### HTTP Request
 
-`DELETE https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/order/<orderId>`
+`DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/<orderId>`
 
 ### URL Parameters
 
@@ -321,7 +321,7 @@ This endpoint allows you to add a product to an order
 
 ### HTTP Request
 
-`DELETE https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/order/<orderId>/product`
+`DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/<orderId>/product`
 
 ### URL Parameters
 
@@ -352,7 +352,7 @@ This endpoint allows you to remove an product from an order
 
 ### HTTP Request
 
-`DELETE https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/order/<orderId>/product/<productId>`
+`DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/<orderId>/product/<productId>`
 
 ### URL Parameters
 
@@ -369,7 +369,7 @@ productId | The UUID of the product you want to remove from the order
 This endpoint allows you to get the total cost of an order
 
 ### HTTP Request
-`GET https://jeffyang-shopifychallenge2018.appspot.com/_ah/api/order/<orderId>/total`
+`GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/<orderId>/total`
 
 
 ### URL Parameters
