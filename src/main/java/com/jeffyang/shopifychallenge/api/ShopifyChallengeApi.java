@@ -24,6 +24,8 @@ public class ShopifyChallengeApi {
   @Inject
   private OrderService orderService;
 
+  private final RedirectMessageWrapper redirectMessageWrapper = new RedirectMessageWrapper();
+
   @ApiMethod(
       httpMethod = ApiMethod.HttpMethod.GET,
       path = "/hello")
@@ -36,60 +38,70 @@ public class ShopifyChallengeApi {
 
   @ApiMethod(httpMethod = ApiMethod.HttpMethod.POST,
              path = "/shop")
-  public Shop createShop(@Named("shopName") String shopName) {
-    return shopService.createShop(shopName);
+  public RedirectMessageWrapper createShop(@Named("shopName") String shopName) {
+    return redirectMessageWrapper;
   }
 
   @ApiMethod(httpMethod = ApiMethod.HttpMethod.GET,
              path = "/shop/{shopId}")
-  public Shop getShop(@Named("shopId") String shopId) {
-    Shop shop = shopService.getShop(shopId);
-    shop.setOrders(null); // do not expose the shop's orders
-    return shop;
+  public RedirectMessageWrapper getShop(@Named("shopId") String shopId) {
+    return redirectMessageWrapper;
   }
 
   @ApiMethod(httpMethod = ApiMethod.HttpMethod.GET,
              path = "/shop/{shopId}/order/{orderId}")
-  public Order getOrder(@Named("shopId") String shopId,
+  public RedirectMessageWrapper getOrder(@Named("shopId") String shopId,
                         @Named("orderId") String orderId) {
-    return orderService.getOrder(shopId, orderId);
+    return redirectMessageWrapper;
   }
 
   @ApiMethod(httpMethod = ApiMethod.HttpMethod.GET,
       path = "/shop/{shopId}/order/{orderId}/cost")
-  public CostWrapper getOrderCost(@Named("shopId") String shopId,
+  public RedirectMessageWrapper getOrderCost(@Named("shopId") String shopId,
                                   @Named("orderId") String orderId) {
-    return CostWrapper.of(orderService.getCost(shopId, orderId));
+    return redirectMessageWrapper;
   }
 
   @ApiMethod(httpMethod = ApiMethod.HttpMethod.POST,
              path = "/product")
-  public Product createProduct(@Named("shopId") String shopId,
+  public RedirectMessageWrapper createProduct(@Named("shopId") String shopId,
                                @Named("productName") String productName,
                                @Named("centValue") int centValue,
                                @Named("productDescription") String productDescription) {
-    return shopService.createProduct(shopId, productName, centValue, productDescription);
+    return redirectMessageWrapper;
   }
 
   @ApiMethod(httpMethod = ApiMethod.HttpMethod.POST,
              path = "/order")
-  public Order createOrder(@Named("shopId") String shopId) {
-    Order order = orderService.createOrder(shopId);
-    return order;
+  public RedirectMessageWrapper createOrder(@Named("shopId") String shopId) {
+    return redirectMessageWrapper;
   }
 
   @ApiMethod(httpMethod = ApiMethod.HttpMethod.POST,
              path = "/order/product")
-  public void addItemToOrder(@Named("shopId") String shopId,
+  public RedirectMessageWrapper addItemToOrder(@Named("shopId") String shopId,
                              @Named("orderId") String orderId,
                              @Named("productId") String productId) {
-    orderService.addItemToOrder(shopId, orderId, productId);
+    return redirectMessageWrapper;
   }
 
   @RequiredArgsConstructor(staticName = "of")
   @Value
   private static class CostWrapper {
     private int centValue;
+  }
+
+  @Value
+  private static class RedirectMessageWrapper {
+
+    private String a_NOTE = "THIS PROJECT IS OUTDATED! I have worked on this project a bit more " +
+        "and have a newer implementation of it. All the endpoints of this project now returns this " +
+        "redirect message.";
+    private String b_new_implementation_repo = "The updated implementation can be found at: https://github.com/jeffjyang/shopifychallenge2019w ";
+    private String c_new_implementation_documentation = "Documentation for the updated implementation can be found in the README and at: " +
+        "https://jeffjyang.github.io/shopifychallenge2019w/#introduction" ;
+    private String d_sample_data = "You can use the shopId of 2113d324-479f-42ab-8d85-f1c531b22a3b for some sample data that has " +
+            "been used to populate the database";
   }
 
 }
