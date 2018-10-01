@@ -1,14 +1,7 @@
 ---
 title: API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
-
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -19,221 +12,376 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to my quick implementation of Shopify's 2019W developer challenge!
 
-We have language bindings in Shell, Ruby, Python, and JavaScript! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # Authentication
 
-> To authorize, use this code:
+(... guess what I still need to implement ...) 
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
+# Shop endpoints
 
-```python
-import kittn
+## Get shop
 
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
+This endpoint retrieves a shop
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET https://jeffyang-shopifychallenge.appspot.com/_ah/api/shop/<shopId>`
 
-### Query Parameters
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+shop | The UUID of the shop you are looking for
+
+> Returns JSON structured like this:
+
+```json
+{
+    "name": "myShopName",
+    "shopId": "9073c13a-38dd-475b-9d37-568a6e514c33",
+    "products": {
+        "2e8f4d63-1609-4352-bde4-8e9e6b091656": {
+            "productId": "2e8f4d63-1609-4352-bde4-8e9e6b091656",
+            "name": "banana",
+            "description": "its yellow!",
+            "centValue": 70
+        },
+        "90170e0e-9454-4869-a18c-e15dc555e063": {
+            "productId": "90170e0e-9454-4869-a18c-e15dc555e063",
+            "name": "apple",
+            "description": "an apple",
+            "centValue": 200
+        }
+    }
+}
+
+```
+
+
+## Create shop
+
+This endpoint allows you to create a shop
+
+### HTTP requests
+
+`POST https://jeffyang-shopifychallenge.appspot.com/_ah/api/shop/`
+
+### BODY parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+shopName | required | Name of your new shop
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Sample JSON request body
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+	"shopName": "myShopName"
 }
 ```
 
-This endpoint retrieves a specific kitten.
+> Returns JSON structured like this:  
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+```json
+{
+    "name": "myShopName",
+    "shopId": "9073c13a-38dd-475b-9d37-568a6e514c33"
+}
+```
 
-### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+## Delete shop
+
+This endpoint allows you to delete a shop
+
+### HTTP requests
+
+`DELETE https://jeffyang-shopifychallenge.appspot.com/_ah/api/shop/<shopId>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+shop | The UUID of the shop you want to delete
 
-## Delete a Specific Kitten
+> Returns an empty body
 
-```ruby
-require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
+## Add product
 
-```python
-import kittn
+This endpoint allows you to add a product to a shop
 
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
+### HTTP request
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
+`POST https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/shop/<shopId>/product`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+shopId | The UUID of the shop you want to add a product
 
+### BODY parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+productName | required | Name of your new product
+centValue | required | Cost of your product in cents
+productDescription | required | Description of your product
+
+> Sample JSON request body
+
+```json
+{
+	"productName": "banana",
+	"centValue": 70,
+	"productDescription": "its yellow!"
+}
+```
+
+> Returns JSON structured like this:
+
+```json
+{
+    "productId": "2e8f4d63-1609-4352-bde4-8e9e6b091656",
+    "name": "banana",
+    "description": "its yellow!",
+    "centValue": 70
+}
+```
+
+
+## Delete product
+
+This endpoint allows you to delete a product from a shop
+
+### HTTP request
+
+`DELETE https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/shop/<shopId>/product/<productId>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+shopId | The UUID of the shop you want to delete a product
+productId | The UUID of the product you want to delete
+
+> Returns an empty body
+
+
+## Get orders
+
+This endpoint allows you to get all the orders of a shop
+
+### HTTP request
+
+`GET https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/shop/<shopId>/orders`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+shop | The UUID of the shop you want the orders of
+
+> Returns JSON structured like this:
+
+```json
+{
+    "items": [
+        {
+            "orderId": "35098375-6e4e-4236-8141-b94fa7193690",
+            "shopId": "9073c13a-38dd-475b-9d37-568a6e514c33"
+        },
+        {
+            "orderId": "4fc543fc-44ed-421b-b168-410503e6abf4",
+            "shopId": "9073c13a-38dd-475b-9d37-568a6e514c33",
+            "cart": {
+                "2e8f4d63-1609-4352-bde4-8e9e6b091656": {
+                    "productId": "2e8f4d63-1609-4352-bde4-8e9e6b091656",
+                    "name": "banana",
+                    "description": "its yellow!",
+                    "centValue": 70,
+                    "quantity": 2
+                },
+                "90170e0e-9454-4869-a18c-e15dc555e063": {
+                    "productId": "90170e0e-9454-4869-a18c-e15dc555e063",
+                    "name": "apple",
+                    "description": "an apple",
+                    "centValue": 200,
+                    "quantity": 1
+                }
+            }
+        }
+    ]
+}
+```
+
+
+# Order endpoints
+
+
+
+## Get order
+
+This endpoint allows you to get a specific order
+
+### HTTP request
+
+`GET https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/order/<orderId>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+orderId | The UUID of the order you want
+
+> Returns JSON structured like this:
+
+```json
+{
+    "orderId": "4fc543fc-44ed-421b-b168-410503e6abf4",
+    "shopId": "9073c13a-38dd-475b-9d37-568a6e514c33",
+    "cart": {
+        "2e8f4d63-1609-4352-bde4-8e9e6b091656": {
+            "productId": "2e8f4d63-1609-4352-bde4-8e9e6b091656",
+            "name": "banana",
+            "description": "its yellow!",
+            "centValue": 70,
+            "quantity": 2
+        },
+        "90170e0e-9454-4869-a18c-e15dc555e063": {
+            "productId": "90170e0e-9454-4869-a18c-e15dc555e063",
+            "name": "apple",
+            "description": "an apple",
+            "centValue": 200,
+            "quantity": 1
+        }
+    }
+}
+```
+
+
+## Create order
+
+This endpoints allow you to create a new order
+
+### HTTP Request
+
+`POST https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/order/`
+
+### BODY Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+shopId | required | The UUID of the shop where you want to create a new order
+
+> Sample JSON request body
+
+```json
+{
+	"shopId": "9073c13a-38dd-475b-9d37-568a6e514c33"
+}
+```
+
+> Returns JSON structured like this:
+
+```json
+{
+    "orderId": "4fc543fc-44ed-421b-b168-410503e6abf4",
+    "shopId": "9073c13a-38dd-475b-9d37-568a6e514c33"
+}
+```
+
+
+## Delete order
+
+This endpoint allows you to delete an order
+
+### HTTP Request
+
+`DELETE https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/order/<orderId>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+orderId | The UUID of the order you want to delete
+
+
+> Returns an empty body
+
+
+
+## Add product to an order
+
+This endpoint allows you to add a product to an order
+
+### HTTP Request
+
+`DELETE https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/order/<orderId>/product`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+orderId | The UUID of the order you want to add a product
+
+### BODY parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+productId | required | The UUID of the product you want to add to the order
+
+> Sample JSON request body
+
+```json
+{
+	"productId": "90170e0e-9454-4869-a18c-e15dc555e063"
+}
+```
+
+> Returns an empty body
+
+
+## Delete a product from an order
+
+This endpoint allows you to remove an product from an order
+
+### HTTP Request
+
+`DELETE https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/order/<orderId>/product/<productId>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+orderId | The UUID of the order you want to remove the product
+productId | The UUID of the product you want to remove from the order
+
+> Returns an empty body
+
+
+## Get total
+
+This endpoint allows you to get the total cost of an order
+
+### HTTP Request
+`GET https://jeffyang-shopifychallenge-dev.appspot.com/_ah/api/order/<orderId>/total`
+
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+orderId | The UUID of the order you want the total
+
+> Returns JSON structured like this:
+
+```json
+{
+    "centValue": 270
+}
+```
