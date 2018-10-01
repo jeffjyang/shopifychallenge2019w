@@ -1,25 +1,17 @@
 package com.jeffyang.shopifychallenge.model;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper=true)
-public class Product extends LineItem {
+@AllArgsConstructor // needed because of a lombok quirk with @Builder
+@Builder
+@EqualsAndHashCode()
+public class Product {
 
-  private String description;
-
-  @Builder
-  private Product(String lineItemName, String lineItemId, int centValue, String description) {
-    super(lineItemName, lineItemId, centValue);
-    this.description = description;
-  }
-
-  public static Product of(Product product) {
-    return new Product(product.getName(), product.getLineItemId(), product.getCentValue(), product.getDescription());
-  }
+  protected String productId;
+  protected String name;
+  protected String description;
+  protected int centValue;
 
 }

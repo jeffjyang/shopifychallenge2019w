@@ -16,9 +16,16 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <endpoints.framework.version>2.1.2</endpoints.framework.version>
+        <endpoints.guice.framework.version>2.1.2</endpoints.guice.framework.version>
         <endpoints.management.version>1.0.4</endpoints.management.version>
 
-        <endpoints.project.id>jeffyang-shopifychallenge</endpoints.project.id>
+        <appengine.version>1.9.64</appengine.version>
+        <javax.servlet.version>3.1.0</javax.servlet.version>
+        <javax.inject.version>1</javax.inject.version>
+        <lombok.version>1.18.2</lombok.version>
+        <objectify.version>5.1.22</objectify.version>
+
+        <endpoints.project.id>jeffyang-shopifychallenge-dev</endpoints.project.id>
     </properties>
 
     <dependencies>
@@ -31,48 +38,95 @@
         <dependency>
             <groupId>com.google.endpoints</groupId>
             <artifactId>endpoints-framework-guice</artifactId>
-            <version>2.1.2</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.endpoints</groupId>
             <artifactId>endpoints-management-control-appengine-all</artifactId>
-            <version>1.0.10</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.appengine</groupId>
             <artifactId>appengine-api-1.0-sdk</artifactId>
-            <version>1.9.64</version>
         </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
-            <type>jar</type>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
-            <version>1</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.2</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
             <groupId>com.googlecode.objectify</groupId>
             <artifactId>objectify</artifactId>
-            <version>5.1.22</version>
         </dependency>
     </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.google.endpoints</groupId>
+                <artifactId>endpoints-framework</artifactId>
+                <version>${endpoints.framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.endpoints</groupId>
+                <artifactId>endpoints-framework-guice</artifactId>
+                <version>${endpoints.guice.framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.endpoints</groupId>
+                <artifactId>endpoints-management-control-appengine-all</artifactId>
+                <version>${endpoints.management.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.appengine</groupId>
+                <artifactId>appengine-api-1.0-sdk</artifactId>
+                <version>${appengine.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet.version}</version>
+                <type>jar</type>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.inject</groupId>
+                <artifactId>javax.inject</artifactId>
+                <version>${javax.inject.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.googlecode.objectify</groupId>
+                <artifactId>objectify</artifactId>
+                <version>${objectify.version}</version>
+            </dependency>
+
+        </dependencies>
+
+    </dependencyManagement>
 
     <build>
         <!-- for hot reload of the web application-->
@@ -107,9 +161,11 @@
                 <configuration>
                     <!-- plugin configuration -->
                     <hostname>${endpoints.project.id}.appspot.com</hostname>
+<!--
                     <serviceClasses>
                       <serviceClass>com.example.echo.Echo</serviceClass>
                     </serviceClasses>
+-->
                 </configuration>
             </plugin>
             <plugin>
