@@ -26,8 +26,8 @@ public class ShopifyChallengeGuiceModule extends EndpointsModule {
 //    filter("/_ah/api/*").through(ServiceManagementConfigFilter.class);
 
     Map<String, String> apiController = new HashMap<String, String>();
-    apiController.put("endpoints.projectId", "jeffyang-shopifychallenge-dev");
-    apiController.put("endpoints.serviceName", "jeffyang-shopifychallenge-dev.appspot.com");
+    apiController.put("endpoints.projectId", "jeffyang-shopifychallenge2019w");
+    apiController.put("endpoints.serviceName", "jeffyang-shopifychallenge2019w.appspot.com");
 
     System.out.println("API CONTROLLER IS: " + apiController);
 
