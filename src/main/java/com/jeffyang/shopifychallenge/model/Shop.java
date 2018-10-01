@@ -13,7 +13,7 @@ import java.util.Map;
 @Data
 @Builder
 @NoArgsConstructor
-@AllArgsConstructor // needed since we have builder annotation
+@AllArgsConstructor // needed because of a lombok quirk with @Builder
 @Entity
 public class Shop {
 
@@ -23,6 +23,5 @@ public class Shop {
   private String shopId;
 
   private Map<String, Product> products = new HashMap<>();
-  private Map<String, Order> orders = new HashMap<>();
 
 }

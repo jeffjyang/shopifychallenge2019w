@@ -23,4 +23,9 @@ public class OfyService<T> {
   public void save(T entity) {
     ofy().save().entity(entity).now();
   }
+
+  public void delete(String id) {
+    ofy().delete().type(clazz).id(id).now();
+  }
+
 }

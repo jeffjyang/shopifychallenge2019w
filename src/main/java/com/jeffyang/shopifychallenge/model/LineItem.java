@@ -7,18 +7,18 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class LineItem {
+public class LineItem extends Product {
 
-  protected String name;
-  protected String lineItemId;
-  protected int centValue;
+  private int quantity = 1;
 
   public static LineItem of(Product product) {
-    // this is really just here as a hack around a objectify quirk, see OrderService
     LineItem lineItem = new LineItem();
-    lineItem.setName(product.getName());
-    lineItem.setLineItemId(product.getLineItemId());
+
+    lineItem.setProductId(product.getProductId());
     lineItem.setCentValue(product.getCentValue());
+    lineItem.setName(product.getName());
+    lineItem.setDescription(product.getDescription());
+
     return lineItem;
   }
 
