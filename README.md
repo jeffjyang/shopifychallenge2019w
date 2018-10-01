@@ -1,3 +1,7 @@
+# NOTE!
+
+Outdated! See https://github.com/jeffjyang/shopifychallenge2019w for newest implementation
+
 # Shopify Developer Challenge 2019 Winter
 
 https://docs.google.com/document/d/1YYDRf_CgQRryf5lZdkZ2o3Hm3erFSaISL1L1s8kLqsI/edit
