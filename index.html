@@ -280,12 +280,14 @@
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to my quick implementation of Shopify&#39;s 2019W developer challenge!</p>
+
+<p>API Host: <code>https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api</code></p>
 <h1 id='authentication'>Authentication</h1>
 <p>(... guess what I still need to implement ...) </p>
 <h1 id='shop-endpoints'>Shop endpoints</h1><h2 id='get-shop'>Get shop</h2>
 <p>This endpoint retrieves a shop</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/&lt;shopId&gt;</code></p>
+<p><code>GET /shop/&lt;shopId&gt;</code></p>
 <h3 id='url-parameters'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -324,7 +326,7 @@
 </span></code></pre><h2 id='create-shop'>Create shop</h2>
 <p>This endpoint allows you to create a shop</p>
 <h3 id='http-requests'>HTTP requests</h3>
-<p><code>POST https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/</code></p>
+<p><code>POST /shop/</code></p>
 <h3 id='body-parameters'>BODY parameters</h3>
 <table><thead>
 <tr>
@@ -357,7 +359,7 @@
 </span></code></pre><h2 id='delete-shop'>Delete shop</h2>
 <p>This endpoint allows you to delete a shop</p>
 <h3 id='http-requests-2'>HTTP requests</h3>
-<p><code>DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/&lt;shopId&gt;</code></p>
+<p><code>DELETE /shop/&lt;shopId&gt;</code></p>
 <h3 id='url-parameters-2'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -377,7 +379,7 @@
 <h2 id='add-product'>Add product</h2>
 <p>This endpoint allows you to add a product to a shop</p>
 <h3 id='http-request-2'>HTTP request</h3>
-<p><code>POST https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/&lt;shopId&gt;/product</code></p>
+<p><code>POST /shop/&lt;shopId&gt;/product</code></p>
 <h3 id='url-parameters-3'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -436,7 +438,7 @@
 </span></code></pre><h2 id='delete-product'>Delete product</h2>
 <p>This endpoint allows you to delete a product from a shop</p>
 <h3 id='http-request-3'>HTTP request</h3>
-<p><code>DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/&lt;shopId&gt;/product/&lt;productId&gt;</code></p>
+<p><code>DELETE /shop/&lt;shopId&gt;/product/&lt;productId&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -460,7 +462,7 @@
 <h2 id='get-orders'>Get orders</h2>
 <p>This endpoint allows you to get all the orders of a shop</p>
 <h3 id='http-request-4'>HTTP request</h3>
-<p><code>GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/shop/&lt;shopId&gt;/orders</code></p>
+<p><code>GET /shop/&lt;shopId&gt;/orders</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -508,7 +510,7 @@
 </span></code></pre><h1 id='order-endpoints'>Order endpoints</h1><h2 id='get-order'>Get order</h2>
 <p>This endpoint allows you to get a specific order</p>
 <h3 id='http-request-5'>HTTP request</h3>
-<p><code>GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/&lt;orderId&gt;</code></p>
+<p><code>GET /order/&lt;orderId&gt;</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -548,7 +550,7 @@
 </span></code></pre><h2 id='create-order'>Create order</h2>
 <p>This endpoints allow you to create a new order</p>
 <h3 id='http-request-6'>HTTP Request</h3>
-<p><code>POST https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/</code></p>
+<p><code>POST /order/</code></p>
 <h3 id='body-parameters-3'>BODY Parameters</h3>
 <table><thead>
 <tr>
@@ -581,7 +583,7 @@
 </span></code></pre><h2 id='delete-order'>Delete order</h2>
 <p>This endpoint allows you to delete an order</p>
 <h3 id='http-request-7'>HTTP Request</h3>
-<p><code>DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/&lt;orderId&gt;</code></p>
+<p><code>DELETE /order/&lt;orderId&gt;</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -601,7 +603,7 @@
 <h2 id='add-product-to-an-order'>Add product to an order</h2>
 <p>This endpoint allows you to add a product to an order</p>
 <h3 id='http-request-8'>HTTP Request</h3>
-<p><code>DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/&lt;orderId&gt;/product</code></p>
+<p><code>DELETE /order/&lt;orderId&gt;/product</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -642,7 +644,7 @@
 <h2 id='delete-a-product-from-an-order'>Delete a product from an order</h2>
 <p>This endpoint allows you to remove an product from an order</p>
 <h3 id='http-request-9'>HTTP Request</h3>
-<p><code>DELETE https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/&lt;orderId&gt;/product/&lt;productId&gt;</code></p>
+<p><code>DELETE /order/&lt;orderId&gt;/product/&lt;productId&gt;</code></p>
 <h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
 <tr>
@@ -666,7 +668,7 @@
 <h2 id='get-total'>Get total</h2>
 <p>This endpoint allows you to get the total cost of an order</p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>GET https://jeffyang-shopifychallenge2019w.appspot.com/_ah/api/order/&lt;orderId&gt;/total</code></p>
+<p><code>GET /order/&lt;orderId&gt;/total</code></p>
 <h3 id='url-parameters-10'>URL Parameters</h3>
 <table><thead>
 <tr>
